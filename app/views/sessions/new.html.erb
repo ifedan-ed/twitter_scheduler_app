@@ -1,0 +1,18 @@
+<h1>Sign In My Dear One</h1>
+
+<%= form_with url: sign_in_path do |form| %>
+<div class = "mb-3">
+    <%= form.label :email, local:true %>
+    <%= form.text_field :email, class: "form-control", placeholder: "ifedan@gmail.com" %>
+    </div>
+
+    <div class = "mb-3">
+    <%= form.label :password %>
+    <%= form.password_field :password, class: "form-control", placeholder: "ifedan" %>
+    <%= link_to "Forgot Your Password?", password_reset_path %>
+    </div>
+
+    <div>
+    <%= form.submit "Sign In Earthling", class: "btn btn-primary", local:true, data: { turbo: false } %>
+    </div>
+<% end %>
