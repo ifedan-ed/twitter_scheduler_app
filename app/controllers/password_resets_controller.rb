@@ -7,7 +7,7 @@ class PasswordResetsController < ApplicationController
   @user = User.find_by(email: params[:email])
   if @user.present?
     #send email notification
-    PasswordMailer.with(user: @user).reset.deliver_later
+    PasswordMailer.with(user: @user).reset.deliver_now
   end
   redirect_to root_path flash[:notice] = "If You are not trying to trick me My Very Best, an email would be sent to you to change your password"
 
