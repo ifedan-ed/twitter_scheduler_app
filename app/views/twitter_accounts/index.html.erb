@@ -8,6 +8,6 @@
 			<img src="<%= twitter_account.image %>" class = "rounded-circle">
 			<%= link_to "@#{twitter_account.username}", "https://twitter.com/#{twitter_account.username}", target: :_blank %>
 		</div>
-		<%= button_to "Disconnect Your Account", twitter_account, local:true, data: { turbo: false }, class: "btn btn-danger" %>
+		<%= button_to "Disconnect Your Account", twitter_account, method: :delete, form: { data: { turbo_confirm: 'Are You Brave Enough?' } }, class:"btn btn-danger" %>
 	</div>
 <% end %>
