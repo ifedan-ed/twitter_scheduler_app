@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-
   get "about", to: "about#index"
   #get "/", to: "main#index"
   root "main#index"
@@ -20,5 +19,5 @@ Rails.application.routes.draw do
   get "password/reset/edit", to: "password_resets#edit"
   patch "password/reset/edit", to: "password_resets#update"
 
-
+  get "auth/twitter/callback", to: "omniauth_callbacks#twitter"
 end
