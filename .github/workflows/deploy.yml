@@ -23,7 +23,7 @@ jobs:
           # specify `--force` as a flag for git pushes
           git_push_flags: '--force'
           git_remote_url: 'ssh://dokku@18.205.112.84:22/twitter-clone'
-          ssh_private_key: ${{secrets.SSH_PRIVATE_KEY}}
+          ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
 
 
 
