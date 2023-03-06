@@ -1,5 +1,5 @@
 class User < ApplicationRecord
   has_secure_password
-
-  validates :email, presence: true, uniqueness: true, format: {with: /\A[^@\s]+@[^@\s]+\z/, message: "enter a valid email address earthling!"}
+  has_many :twitter_accounts
+  validates :email, presence: true, uniqueness: true, format: { with: /\A[^@\s]+@[^@\s]+\z/, message: "enter a valid email address earthling!" }
 end
