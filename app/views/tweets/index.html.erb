@@ -1,0 +1,11 @@
+<div class = "d-flex justify-content-between align-items-center">
+	<h2> Your Tweets My Dear</h2>
+	<% if Current.user.twitter_accounts.any? %>
+		<%= link_to "Schedule Tweets", new_tweet_path, class: "btn btn-primary" %>
+	<% end %>
+</div>
+<div class = "container">
+	<% if Current.user.twitter_accounts.none? %>
+		<%= link_to "Connect Your Twitter Account My Very Best", "/auth/twitter", class: "btn btn-primary" %>
+	<% end %>
+</div>
