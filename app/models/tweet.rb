@@ -1,4 +1,9 @@
 class Tweet < ApplicationRecord
   belongs_to :user
   belongs_to :twitter_account
+  validates :body, presence: true, length: { minimum: 1, maximum: 278 }
+  validates :publish_at, presence: true
+  after_initialize do
+    self.publish_at ||= 2.hours.from_now
+  end
 end
