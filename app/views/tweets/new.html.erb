@@ -3,7 +3,7 @@
 	<div class="mb-3">
 		<%= form.label :twitter_account_id %>
 		<%= form.collection_select :twitter_account_id, Current.user.twitter_accounts, :id, :username, {}, {class: "form-control"} %>
-		<%= link_to "Connect Another Twitter Account My Very Best", "/auth/twitter", class: "btn btn-primary" %>
+		<%= link_to "Connect Another Twitter Account My Very Best", "/auth/twitter", class: "btn btn-primary mt-3" %>
 	</div>
 	<div class="mb-3">
 		<%= form.label :body %>
