@@ -1,9 +1,21 @@
 <div class="mb-3 card mt-3 bg-light mb-3 mb-3">
 	<div class="card-body">
+		<h5 class="card-title">Tweet</h5>
 		<p class="card-text">	<%= tweet.body %> </p>
 	</div>
-	<div class="d-flex align-items-center mb-1 me-4 card-footer">
-		<img src="<%= tweet.twitter_account.image %>" class = "img-thumbnail">
-		<%= link_to "@#{tweet.twitter_account.username}", "https://twitter.com/#{tweet.twitter_account.username}", target: :_blank %>
+	<div class="d-flex justify-content-between card-footer">
+		<div class ="text-start">
+			<img src="<%= tweet.twitter_account.image %>" class = "rounded-circle img-thumbnail">
+			<%= link_to "@#{tweet.twitter_account.username}", "https://twitter.com/#{tweet.twitter_account.username}", target: :_blank %>
+			<div>
+			</div>
+			<div class="text-end">
+				<% if tweet.published? %>
+					<%= link_to "View Tweet", "https://twitter.com/#{tweet.tweeter_account.username}/status/#{tweet.tweet_id}", target: :_blank %>
+				<% else %>
+					<div> Scheduled for: <%= l tweet.publish_at, format: :long %> </div>
+				<% end %>
+			</div>
+		</div>
 	</div>
 </div>
