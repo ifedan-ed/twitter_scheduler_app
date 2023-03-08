@@ -13,6 +13,21 @@ class TweetsController < ApplicationController
   def edit
   end
 
+  def update
+    if @tweet.update(tweet_params)
+      redirect_to tweets_path
+      flash[:notice] = "Your Tweet has been updated successfully My Very Best. Why did you change your mind?"
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    @tweet.destroy
+    redirect_to tweets_path
+    flash[:notice] = "Your Tweet was successfully unscheduled My Very Best. Who threatened You?"
+  end
+
   def create
     @tweet = Current.user.tweets.new(tweet_params)
     if @tweet.save
