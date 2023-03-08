@@ -6,4 +6,8 @@ class Tweet < ApplicationRecord
   after_initialize do
     self.publish_at ||= 2.hours.from_now
   end
+
+  def published?
+    tweet_id?
+  end
 end
