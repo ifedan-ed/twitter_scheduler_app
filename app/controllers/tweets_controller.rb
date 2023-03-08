@@ -1,5 +1,6 @@
 class TweetsController < ApplicationController
   before_action :require_user_logged_in!
+  before_action :set_tweet, only: [:show, :edit, :update, :destroy]
 
   def index
     @tweets = Current.user.tweets
@@ -7,6 +8,9 @@ class TweetsController < ApplicationController
 
   def new
     @tweet = Tweet.new
+  end
+
+  def edit
   end
 
   def create
@@ -23,5 +27,9 @@ class TweetsController < ApplicationController
 
   def tweet_params
     params.require(:tweet).permit(:twitter_account_id, :body, :publish_at)
+  end
+
+  def set_tweet
+    @tweet = Current.user.tweets.find(params[:id])
   end
 end

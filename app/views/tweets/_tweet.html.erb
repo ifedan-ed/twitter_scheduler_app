@@ -13,7 +13,9 @@
 				<% if tweet.published? %>
 					<%= link_to "View Tweet", "https://twitter.com/#{tweet.tweeter_account.username}/status/#{tweet.tweet_id}", target: :_blank %>
 				<% else %>
-					<div> Scheduled for: <%= l tweet.publish_at, format: :long %> </div>
+					<div> Scheduled for: <%= l tweet.publish_at, format: :long %>
+						<%= link_to "Edit Tweet", edit_tweet_path(tweet) %>
+					</div>
 				<% end %>
 			</div>
 		</div>
