@@ -1,22 +1,23 @@
 class PasswordResetsController < ApplicationController
   def new
-
   end
 
   def create
-  @user = User.find_by(email: params[:email])
+    @user = User.find_by(email: params[:email])
     if @user.present?
       #send email notification
       PasswordMailer.with(user: @user).reset.deliver_now
     end
-  redirect_to root_path flash[:notice] = "If You are not trying to trick me My Very Best, an email would be sent to you to change your password"
-
+    redirect_to root_path flash[:notice] = "If You are not trying to trick me My Very Best, an email would be sent to you to change your password"
   end
 
   def edit
-    @user = User.find_signed(params[:token], purpose: "password_reset")
-  rescue ActiveSupport::MessageVerifier::InvalidSignature
-    redirect_to root_path flash[:alert] = "Your token has expired My Dear, try again will you?"
+    begin
+      @user = User.find_signed(params[:token], purpose: "password_reset")
+    rescue ActiveSupport::MessageVerifier::InvalidSignature
+      redirect_to root_path
+      flash[:alert] = "Your token has expired My Dear, try again will you?"
+    end
   end
 
   def update
@@ -26,7 +27,6 @@ class PasswordResetsController < ApplicationController
     else
       render :edit
     end
-
   end
 
   private
