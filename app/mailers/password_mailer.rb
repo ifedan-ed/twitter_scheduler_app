@@ -13,6 +13,7 @@ class PasswordMailer < ApplicationMailer
       to: params[:user].email,
       from: "dan@danitex.com.ng",
       message_stream: "outbound",
+      track_opens: "true",
     )
   end
 end
