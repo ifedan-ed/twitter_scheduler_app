@@ -14,7 +14,7 @@ class PasswordResetsController < ApplicationController
   def edit
     begin
       @user = User.find_signed(params[:token], purpose: "password_reset")
-    rescue ActiveSupport::MessageVerifier::InvalidSignature
+    rescue
       redirect_to root_path
       flash[:alert] = "Your token has expired My Dear, try again will you?"
     end
