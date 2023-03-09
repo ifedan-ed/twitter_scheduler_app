@@ -10,6 +10,7 @@ class PasswordMailer < ApplicationMailer
     @token = params[:user].signed_id(purpose: "password_reset", expires_in: 15.minutes)
 
     mail(
+      subject: "Password Reset",
       to: params[:user].email,
       from: "dan@danitex.com.ng",
       message_stream: "outbound",
