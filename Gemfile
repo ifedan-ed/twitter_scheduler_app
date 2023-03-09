@@ -79,3 +79,5 @@ gem "pg", "~> 1.1"
 gem "twitter", "~> 7.0"
 
 gem "sidekiq", "~> 7.0"
+
+gem "postmark-rails"
