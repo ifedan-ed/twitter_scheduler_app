@@ -1,4 +1,5 @@
 class PasswordMailer < ApplicationMailer
+  default from: "dan@danitex.com.ng"
 
   # Subject can be set in your I18n file at config/locales/en.yml
   # with the following lookup:
@@ -8,6 +9,10 @@ class PasswordMailer < ApplicationMailer
   def reset
     @token = params[:user].signed_id(purpose: "password_reset", expires_in: 15.minutes)
 
-    mail to: params[:user].email
+    mail(
+      to: params[:user].email,
+      from: "dan@danitex.com.ng",
+      message_stream: "outbound",
+    )
   end
 end

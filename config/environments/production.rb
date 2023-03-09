@@ -90,7 +90,21 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
-  config.action_mailer.default_url_options = { host: "localhost:3000" }
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.default_url_options = {
+  :host => 'https://tweetsdeck.danitex.com.ng',
+  :protocol => 'http'
+  }
+  config.action_mailer.smtp_settings = {
+  :address => 'smtp.postmarkapp.com',
+  :port => 25, 2525, or 587,
+  :user_name => '26e9479f-211d-4ed0-897a-414a416eba19',
+  :password => '26e9479f-211d-4ed0-897a-414a416eba19',
+  :authentication => 'Plain text, CRAM-MD5, or TLS',
+  :enable_starttls_auto => true
+  }
+
+
 
   config.active_job.queue_adapter = :sidekiq
 end
