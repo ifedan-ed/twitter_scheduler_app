@@ -7,7 +7,11 @@
 </div>
 
 <div class = "d-flex align-items-center justify-content-center">
+<% if Current.user %>
 <%= button_to "Click to Connect Your Twitter Account", "/auth/twitter", method: :post, class: "btn btn-primary mt-3", data: { turbo: false } %>
+<% else %>
 
+<%= button_to "Click to Sign Up", sign_up_path, method: :post, class: "btn btn-primary mt-3", data: { turbo: false } %>
+<% end %>
 </div>
 
