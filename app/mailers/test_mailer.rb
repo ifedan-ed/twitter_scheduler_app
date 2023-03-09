@@ -3,7 +3,7 @@ class TestMailer < ApplicationMailer
 
   def hello
     mail(
-      subject: "Hello from Postmark",
+      subject: "Hello from Postmak",
       to: "test@blackhole.postmarkapp.com",
       from: "dan@danitex.com.ng",
       html_body: "<strong>Hello</strong> dear Postmark user.",
