@@ -89,11 +89,8 @@ Rails.application.configure do
   end
 
   # Do not dump schema after migrations.
-  config.active_record.dump_schema_after_migration = false
-  config.action_mailer.delivery_method = :smtp
-  config.action_mailer.default_url_options = {
-    :host => "https://tweetsdeck.danitex.com.ng",
-    :protocol => "http",
+  config.action_mailer.postmark_settings = {
+    api_token: Rails.application.credentials.postmark_api_token,
   }
 
   config.active_job.queue_adapter = :sidekiq
