@@ -11,7 +11,7 @@
 <%= button_to "Click to Connect Your Twitter Account", "/auth/twitter", method: :post, class: "btn btn-primary mt-3", data: { turbo: false } %>
 <% else %>
 
-<%= button_to "Click to Sign Up", sign_up_path, method: :post, class: "btn btn-primary mt-3", data: { turbo: false } %>
+<%= button_to "Click to Sign Up", sign_up_path, class: "btn btn-primary mt-3", data: { turbo: false } %>
 <% end %>
 </div>
 
